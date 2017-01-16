@@ -5,14 +5,18 @@ import Main from './components/main';
 import Single from './components/single';
 import Photogrid from './components/photogrid';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {Provider} from 'react-redux';
+import store, {history} from './store';
 
 const router = (
-  <Router history={browserHistory}>
-    <Route path="/" component={Main}>
-      <IndexRoute component={Photogrid}></IndexRoute>
-      <Route path="/view/:postId" component={Single}></Route>
-    </Route>
-  </Router>
+  <Provider>
+    <Router history={history}>
+      <Route path="/" component={Main}>
+        <IndexRoute component={Photogrid}></IndexRoute>
+        <Route path="/view/:postId" component={Single}></Route>
+      </Route>
+    </Router>
+  </Provider>
 )
 
 render(router, document.getElementById('root'));
