@@ -1,0 +1,7 @@
+// a reducer take the action and copy of state
+function posts(state = [], action){
+  console.log(state, action);
+  return state;
+}
+
+export default posts;
